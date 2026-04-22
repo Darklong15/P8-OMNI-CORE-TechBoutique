@@ -1,0 +1,20 @@
+El diseño de la sección de ubicaciones parece el HUD de un videojuego de espías (con términos como "Coordenadas del Núcleo", iconos de mira telescópica y "Datos de Telemetría"). Esto no encaja con la estética corporativa y ultra-premium de OMNI CORE.
+
+Por favor, rediseña el componente de Ubicación aplicando las siguientes reglas:
+
+1. Copywriting Premium: 
+   - Cambia el título a "Presencia Corporativa" o "Sedes Operativas".
+   - Subtítulo: "Infraestructura física y alianzas estratégicas."
+   - Elimina cualquier texto sobre "telemetría" o "nodos".
+
+2. Layout Asimétrico (Grid):
+   - Divide la sección en dos columnas (en pantallas md y lg).
+   - Columna Izquierda (Visual/Mapa): Crea un contenedor con bordes redondeados (`rounded-xl`), borde fino (`border border-white/10`) y overflow oculto (`overflow-hidden`). Dentro, inserta un `iframe` de Google Maps apuntando a "Fraccionamiento Los Molinos, Zapopan". 
+   - CRÍTICO PARA EL MAPA: Para que el mapa no rompa el Dark Mode, aplícale estas clases de Tailwind al iframe o a su contenedor para invertir los colores: `filter grayscale contrast-100 opacity-80 hover:opacity-100 transition-opacity duration-500`. (O usa `invert-[.9] hue-rotate-180` si es necesario para lograr un mapa oscuro).
+
+3. Columna Derecha (Tarjetas de Información Limpias):
+   - Elimina los fondos con miras de francotirador. Usa tarjetas simples con Glassmorphism (`bg-white/5 backdrop-blur-sm border border-white/10`).
+   - Tarjeta 1 (Hub Principal): Destaca la dirección de la tienda ("C. Sésamo Sur 814-19, Fraccionamiento Los Molinos, 45200 Campestre las Palomas, Jal."). Ponle un icono de mapa limpio (Lucide React: `MapPin`).
+   - Tarjeta 2 (Sede Universitaria): Hazla visualmente un poco más sutil o pequeña, etiquetada como "Alianza Académica / Sede de Desarrollo". Dirección: "CUCEI - Blvd. Gral. Marcelino García Barragán 1421, Olímpica, Guadalajara". Icono sugerido: `Building` o `GraduationCap`.
+
+4. Tipografía: Usa 'Space Grotesk' para los títulos de las tarjetas y 'Inter' en gris claro (`text-gray-400`) para las direcciones físicas.

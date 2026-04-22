@@ -1,61 +1,100 @@
 import { motion } from "framer-motion";
-import { MapPin, Crosshair } from "lucide-react";
+import { MapPin, GraduationCap } from "lucide-react";
 
 export function Locations() {
-  const locs = [
-    {
-      type: "Tienda / Hub Principal",
-      addr: "C. Sésamo Sur 814-19, Fraccionamiento Los Molinos, 45200 Campestre las Palomas, Jal.",
-      coords: "20.7681° N, -103.4352° W"
-    },
-    {
-      type: "Sede Universitaria",
-      addr: "Blvd. Gral. Marcelino García Barragán 1421, Olímpica, 44430 Guadalajara, Jal.",
-      coords: "20.6653° N, -103.3255° W"
-    }
-  ];
-
   return (
-    <section id="ubicacion" className="py-24 relative bg-background border-y border-white/5">
+    <section
+      id="ubicacion"
+      className="py-24 relative bg-background border-y border-white/5"
+    >
       <div className="container mx-auto px-6">
-        <motion.div 
-          className="mb-16"
+        <motion.div
+          className="mb-16 max-w-2xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold font-mono tracking-tighter mb-4 glow-text uppercase border-l-4 border-primary pl-4">Coordenadas del Núcleo</h2>
-          <p className="text-muted-foreground font-mono pl-5">Nodos de distribución física autorizados.</p>
+          <h2
+            className="text-3xl md:text-5xl font-semibold tracking-tight mb-4 text-white"
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          >
+            Presencia Corporativa
+          </h2>
+          <p className="text-gray-400 font-light">
+            Infraestructura física y alianzas estratégicas.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {locs.map((loc, i) => (
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-3 rounded-xl border border-white/10 overflow-hidden bg-white/5 min-h-[420px] relative"
+          >
+            <iframe
+              title="Mapa OMNI CORE — Fraccionamiento Los Molinos"
+              src="https://www.google.com/maps?q=Fraccionamiento+Los+Molinos,+Zapopan,+Jalisco&output=embed"
+              className="w-full h-full min-h-[420px] border-0 invert-[.92] hue-rotate-180 contrast-90 saturate-50 opacity-80 hover:opacity-100 transition-opacity duration-500"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </motion.div>
+
+          <div className="lg:col-span-2 flex flex-col gap-6">
             <motion.div
-              key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.2 }}
-              className="glass-card p-8 relative overflow-hidden group"
+              transition={{ delay: 0.1 }}
+              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-7 hover:border-cyan-500/30 transition-colors"
             >
-              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
-                <Crosshair className="w-24 h-24 text-primary" />
-              </div>
-              
-              <div className="flex items-start gap-4 relative z-10">
-                <div className="p-3 bg-primary/10 border border-primary/30 rounded text-primary">
-                  <MapPin className="w-6 h-6" />
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2.5 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">
+                  <MapPin className="w-5 h-5" strokeWidth={1.5} />
                 </div>
-                <div>
-                  <div className="font-mono text-xs text-primary mb-1 uppercase glow-text">{loc.type}</div>
-                  <h3 className="text-lg font-sans font-medium text-foreground mb-4 pr-12">{loc.addr}</h3>
-                  <div className="inline-block px-3 py-1 bg-black/50 border border-white/10 font-mono text-xs text-muted-foreground">
-                    DATOS DE TELEMETRÍA: {loc.coords}
-                  </div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-cyan-500/70 font-bold">
+                  Hub Principal
                 </div>
               </div>
+              <h3
+                className="text-lg font-medium text-white mb-2"
+                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              >
+                Tienda OMNI CORE
+              </h3>
+              <p className="text-sm text-gray-400 font-light leading-relaxed">
+                C. Sésamo Sur 814-19, Fraccionamiento Los Molinos, 45200
+                Campestre las Palomas, Jal.
+              </p>
             </motion.div>
-          ))}
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-cyan-500/20 transition-colors"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 rounded-md bg-white/5 border border-white/10 text-gray-300">
+                  <GraduationCap className="w-4 h-4" strokeWidth={1.5} />
+                </div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">
+                  Alianza Académica / Sede de Desarrollo
+                </div>
+              </div>
+              <h3
+                className="text-base font-medium text-gray-200 mb-2"
+                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              >
+                CUCEI — Universidad de Guadalajara
+              </h3>
+              <p className="text-sm text-gray-400 font-light leading-relaxed">
+                Blvd. Gral. Marcelino García Barragán 1421, Olímpica, Guadalajara, Jal.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
