@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SplashScreen } from "@/components/SplashScreen";
 import { Hero } from "@/components/Hero";
+import { Locations } from "@/components/Locations";
 import { Layout } from "@/components/Layout";
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
       >
         <Layout>
           <Hero />
+          <Locations />
         </Layout>
       </motion.div>
     </>

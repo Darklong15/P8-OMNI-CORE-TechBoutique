@@ -6,7 +6,6 @@ import { Link, useLocation } from "wouter";
 const NAV_ITEMS = [
   { label: "Inicio", path: "/" },
   { label: "Catálogo", path: "/catalogo" },
-  { label: "Ubicación", path: "/ubicacion" },
   { label: "Contacto", path: "/contacto" },
 ];
 
