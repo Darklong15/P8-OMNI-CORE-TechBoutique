@@ -4,7 +4,6 @@ export function Footer() {
       <div className="absolute inset-0 grid-bg opacity-5 pointer-events-none" />
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-10">
-
           <div className="flex flex-col items-start gap-5">
             <div>
               <div className="font-mono font-bold text-2xl tracking-wider text-foreground glow-text">
@@ -14,14 +13,11 @@ export function Footer() {
                 Securing the future.
               </p>
             </div>
-            <div className="w-32 h-12 bg-white/5 rounded-md flex items-center justify-center border border-white/10 overflow-hidden">
+            <div className="w-40 h-40 bg-white/5 rounded-md flex items-center justify-center border border-white/10 overflow-hidden p-3">
               <img
-                src="/logo-cucei.png"
-                alt="Logo de CUCEI"
-                className="max-h-8 max-w-[80%] object-contain opacity-80"
-                onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.display = "none";
-                }}
+                src="https://res.cloudinary.com/dv20dw1uq/image/upload/v1776899223/escudo-cucei_iyxguz.webp"
+                alt="Escudo Oficial CUCEI"
+                className="w-full h-full object-contain opacity-90 hover:opacity-100 transition-opacity"
               />
             </div>
           </div>
@@ -83,7 +79,6 @@ export function Footer() {
               </div>
             </div>
           </div>
-
         </div>
 
         <div className="mt-12 pt-6 font-mono text-[10px] text-muted-foreground/50 tracking-[0.3em] uppercase text-center">
