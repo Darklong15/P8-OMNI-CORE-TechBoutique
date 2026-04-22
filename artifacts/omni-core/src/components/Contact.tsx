@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, CheckCircle2, Loader2 } from "lucide-react";
+import { Send, CheckCircle2, TerminalSquare } from "lucide-react";
 
 export function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -9,7 +9,7 @@ export function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) return;
-
+    
     setStatus("submitting");
     setTimeout(() => {
       setStatus("success");
@@ -20,127 +20,94 @@ export function Contact() {
     }, 1500);
   };
 
-  const inputClass =
-    "w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 text-sm text-gray-100 placeholder:text-gray-500 font-sans focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50 outline-none transition-all";
-
-  const labelClass =
-    "text-[10px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-2 block";
-
   return (
     <section id="contacto" className="py-24 relative">
       <div className="container mx-auto px-6 max-w-3xl">
-        <motion.div
+        <motion.div 
           className="mb-12 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2
-            className="text-3xl md:text-5xl font-semibold tracking-tight mb-4 text-white"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-          >
-            Contacto Corporativo
-          </h2>
-          <p className="text-gray-400 font-light max-w-xl mx-auto">
-            Nuestro equipo de ingeniería está listo para escalar la
-            infraestructura de su empresa.
-          </p>
+          <h2 className="text-3xl md:text-5xl font-bold font-mono tracking-tighter mb-4 glow-text uppercase">Canal Seguro</h2>
+          <p className="text-muted-foreground font-mono">Establecer comunicación cifrada con el mando central.</p>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="relative rounded-xl border border-white/10 bg-white/[0.02] backdrop-blur-xl p-8 md:p-10"
+          className="glass-card p-8 border-t-4 border-t-primary"
         >
           {status === "idle" && (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className={labelClass}>Nombre Completo</label>
-                  <input
-                    type="text"
+                <div className="space-y-2">
+                  <label className="font-mono text-xs text-primary uppercase">Identificación [Nombre]</label>
+                  <input 
+                    type="text" 
                     value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className={inputClass}
-                    placeholder="Ej. María González"
+                    onChange={e => setForm({...form, name: e.target.value})}
+                    className="w-full bg-background/50 border border-white/10 px-4 py-3 font-mono text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all text-foreground"
+                    placeholder="Ingrese identificador"
                   />
                 </div>
-                <div>
-                  <label className={labelClass}>Correo Electrónico</label>
-                  <input
-                    type="email"
+                <div className="space-y-2">
+                  <label className="font-mono text-xs text-primary uppercase">Vector [Email]</label>
+                  <input 
+                    type="email" 
                     value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className={inputClass}
-                    placeholder="empresa@dominio.com"
+                    onChange={e => setForm({...form, email: e.target.value})}
+                    className="w-full bg-background/50 border border-white/10 px-4 py-3 font-mono text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all text-foreground"
+                    placeholder="Ingrese vector de respuesta"
                   />
                 </div>
               </div>
-              <div>
-                <label className={labelClass}>Mensaje / Requerimientos</label>
-                <textarea
-                  rows={5}
+              <div className="space-y-2">
+                <label className="font-mono text-xs text-primary uppercase">Carga Útil [Mensaje]</label>
+                <textarea 
+                  rows={4}
                   value={form.message}
-                  onChange={(e) =>
-                    setForm({ ...form, message: e.target.value })
-                  }
-                  className={`${inputClass} resize-none`}
-                  placeholder="Cuéntenos sobre el proyecto, el tamaño de su infraestructura y los plazos estimados."
+                  onChange={e => setForm({...form, message: e.target.value})}
+                  className="w-full bg-background/50 border border-white/10 px-4 py-3 font-mono text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all resize-none text-foreground"
+                  placeholder="Ingrese el paquete de datos a transmitir"
                 />
               </div>
-
-              <div className="pt-2">
-                <button
-                  type="submit"
-                  className="group relative inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-md bg-gradient-to-b from-[#0a1722] to-[#050a12] border border-cyan-500/40 text-sm text-white font-medium tracking-wide transition-all duration-300 hover:border-cyan-400 hover:from-cyan-500 hover:to-cyan-600 hover:text-[#05070b]"
-                >
-                  <span
-                    aria-hidden
-                    className="absolute -inset-1 rounded-md bg-cyan-500/20 blur-lg opacity-50 group-hover:opacity-100 transition-opacity duration-300 -z-10"
-                  />
-                  Solicitar Asesoría
-                  <Send className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-                </button>
-              </div>
+              
+              <button 
+                type="submit"
+                className="w-full py-4 bg-primary/10 border border-primary text-primary font-mono font-bold tracking-widest hover:bg-primary hover:text-background transition-all duration-300 cyan-glow flex items-center justify-center gap-2"
+              >
+                <Send className="w-4 h-4" /> TRANSMITIR PAQUETE
+              </button>
             </form>
           )}
 
           {status === "submitting" && (
             <div className="flex flex-col items-center justify-center py-16 space-y-4">
-              <Loader2 className="w-10 h-10 text-cyan-400 animate-spin" />
-              <div
-                className="text-lg text-gray-200 font-light"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-              >
-                Enviando su solicitud…
+              <TerminalSquare className="w-12 h-12 text-primary animate-pulse" />
+              <div className="font-mono text-primary text-lg glow-text flex items-center gap-2">
+                Encriptando mensaje
+                <motion.span 
+                  animate={{ opacity: [0, 1, 0] }} 
+                  transition={{ duration: 0.8, repeat: Infinity }}
+                  className="inline-block w-2 h-4 bg-primary"
+                />
               </div>
-              <p className="text-xs text-gray-500 tracking-wide">
-                Un asesor responderá en menos de 24 horas hábiles.
-              </p>
             </div>
           )}
 
           {status === "success" && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="flex flex-col items-center justify-center py-16 space-y-4 text-center"
+              className="flex flex-col items-center justify-center py-16 space-y-4"
             >
-              <div className="relative">
-                <div className="absolute inset-0 rounded-full bg-cyan-500/30 blur-2xl" />
-                <CheckCircle2 className="w-14 h-14 text-cyan-400 relative" />
+              <CheckCircle2 className="w-16 h-16 text-primary" />
+              <div className="font-mono text-xl text-primary glow-text uppercase font-bold">
+                Protocolo enviado con éxito
               </div>
-              <div
-                className="text-2xl text-white font-semibold"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-              >
-                Solicitud recibida
-              </div>
-              <p className="text-sm text-gray-400 font-light max-w-sm">
-                Hemos enviado una confirmación a su correo. Un asesor de OMNI
-                CORE le contactará en breve.
-              </p>
+              <p className="text-muted-foreground font-mono text-sm">Respuesta encolada en sistema central.</p>
             </motion.div>
           )}
         </motion.div>
