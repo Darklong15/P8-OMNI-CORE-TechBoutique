@@ -1,12 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SplashScreen } from "@/components/SplashScreen";
-import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
-import { Catalog } from "@/components/Catalog";
-import { Locations } from "@/components/Locations";
-import { Contact } from "@/components/Contact";
-import { Footer } from "@/components/Footer";
+import { Layout } from "@/components/Layout";
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
@@ -19,21 +15,15 @@ export default function Home() {
 
       <motion.div
         initial={{ filter: "blur(20px)", opacity: 0 }}
-        animate={{ 
-          filter: showSplash ? "blur(20px)" : "blur(0px)", 
-          opacity: showSplash ? 0 : 1 
+        animate={{
+          filter: showSplash ? "blur(20px)" : "blur(0px)",
+          opacity: showSplash ? 0 : 1,
         }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-        className="min-h-screen bg-background flex flex-col"
       >
-        <Navbar />
-        <main className="flex-1">
+        <Layout>
           <Hero />
-          <Catalog />
-          <Locations />
-          <Contact />
-        </main>
-        <Footer />
+        </Layout>
       </motion.div>
     </>
   );

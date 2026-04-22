@@ -1,11 +1,8 @@
 import { motion } from "framer-motion";
 import { Server, Database, Lock } from "lucide-react";
+import { Link } from "wouter";
 
 export function Hero() {
-  const scrollToCatalog = () => {
-    const el = document.getElementById("catalogo");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section id="inicio" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
@@ -61,13 +58,14 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <button 
-            onClick={scrollToCatalog}
-            className="px-8 py-4 bg-primary/10 border border-primary text-primary font-mono font-bold tracking-widest hover:bg-primary hover:text-background transition-all duration-300 cyan-glow group relative overflow-hidden"
-          >
-            <span className="relative z-10">INICIAR PROTOCOLO</span>
-            <div className="absolute inset-0 h-full w-0 bg-primary transition-all duration-300 ease-out group-hover:w-full z-0" />
-          </button>
+          <Link href="/catalogo">
+            <button
+              className="px-8 py-4 bg-primary/10 border border-primary text-primary font-mono font-bold tracking-widest hover:bg-primary hover:text-background transition-all duration-300 cyan-glow group relative overflow-hidden"
+            >
+              <span className="relative z-10">INICIAR PROTOCOLO</span>
+              <div className="absolute inset-0 h-full w-0 bg-primary transition-all duration-300 ease-out group-hover:w-full z-0" />
+            </button>
+          </Link>
         </motion.div>
 
         <motion.div 
