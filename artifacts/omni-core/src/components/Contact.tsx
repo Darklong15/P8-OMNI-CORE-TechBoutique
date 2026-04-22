@@ -3,28 +3,49 @@ import { motion } from "framer-motion";
 import { Send, CheckCircle2, Loader2 } from "lucide-react";
 
 export function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    company: "",
+    role: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<"idle" | "submitting" | "success">(
+    "idle",
+  );
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.message) return;
+    if (!form.name || !form.email || !form.company || !form.message) return;
 
     setStatus("submitting");
     setTimeout(() => {
       setStatus("success");
       setTimeout(() => {
-        setForm({ name: "", email: "", message: "" });
+        setForm({ name: "", email: "", company: "", role: "", message: "" });
         setStatus("idle");
       }, 3000);
     }, 1500);
   };
 
   const inputClass =
-    "w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 text-sm text-gray-100 placeholder:text-gray-500 font-sans focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50 outline-none transition-all";
+    "peer w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 text-sm text-gray-100 placeholder:text-gray-500 font-sans focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50 outline-none transition-all hover:border-white/20";
 
   const labelClass =
-    "text-[10px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-2 block";
+    "text-[10px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-2 block peer-focus:text-cyan-400 transition-colors";
+
+  const Field = ({
+    label,
+    children,
+  }: {
+    label: string;
+    children: React.ReactNode;
+  }) => (
+    <label className="block group">
+      <span className={labelClass}>{label}</span>
+      {children}
+    </label>
+  );
 
   return (
     <section id="contacto" className="py-24 relative">
@@ -51,34 +72,62 @@ export function Contact() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative rounded-xl border border-white/10 bg-white/[0.02] backdrop-blur-xl p-8 md:p-10"
+          className="relative rounded-xl border border-cyan-500/20 bg-white/[0.02] backdrop-blur-xl p-8 md:p-10 shadow-[0_0_60px_-15px_rgba(0,218,243,0.25)]"
         >
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-white/5"
+          />
+
           {status === "idle" && (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 relative">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className={labelClass}>Nombre Completo</label>
+                <Field label="Nombre Completo">
                   <input
                     type="text"
                     value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    onChange={(e) =>
+                      setForm({ ...form, name: e.target.value })
+                    }
                     className={inputClass}
                     placeholder="Ej. María González"
                   />
-                </div>
-                <div>
-                  <label className={labelClass}>Correo Electrónico</label>
+                </Field>
+                <Field label="Correo Electrónico">
                   <input
                     type="email"
                     value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    onChange={(e) =>
+                      setForm({ ...form, email: e.target.value })
+                    }
                     className={inputClass}
                     placeholder="empresa@dominio.com"
                   />
-                </div>
+                </Field>
+                <Field label="Empresa">
+                  <input
+                    type="text"
+                    value={form.company}
+                    onChange={(e) =>
+                      setForm({ ...form, company: e.target.value })
+                    }
+                    className={inputClass}
+                    placeholder="Razón social"
+                  />
+                </Field>
+                <Field label="Cargo">
+                  <input
+                    type="text"
+                    value={form.role}
+                    onChange={(e) =>
+                      setForm({ ...form, role: e.target.value })
+                    }
+                    className={inputClass}
+                    placeholder="Ej. CTO, Director de TI"
+                  />
+                </Field>
               </div>
-              <div>
-                <label className={labelClass}>Mensaje / Requerimientos</label>
+              <Field label="Requerimientos Técnicos">
                 <textarea
                   rows={5}
                   value={form.message}
@@ -86,9 +135,9 @@ export function Contact() {
                     setForm({ ...form, message: e.target.value })
                   }
                   className={`${inputClass} resize-none`}
-                  placeholder="Cuéntenos sobre el proyecto, el tamaño de su infraestructura y los plazos estimados."
+                  placeholder="Describa la infraestructura objetivo, cargas de trabajo, plazos y requisitos de cumplimiento."
                 />
-              </div>
+              </Field>
 
               <div className="pt-2">
                 <button

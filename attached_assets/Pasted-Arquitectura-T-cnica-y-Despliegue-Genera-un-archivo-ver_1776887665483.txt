@@ -1,0 +1,49 @@
+Arquitectura Técnica y Despliegue:
+Genera un archivo vercel.json en la raíz con la configuración SPA para Vite. Usa React, Vite, Tailwind CSS, Framer Motion y Lucide React.
+
+1. SISTEMA DE DATOS MASIVO (50 PRODUCTOS):
+
+Genera una base de datos local (array de objetos) con exactamente 50 productos técnicos de alta gama.
+
+Hardware (20 items): Incluye placas base (Motherboards TRX40, Z790), Procesadores Threadripper, GPUs RTX 6000 Ada, Memoria RAM ECC, Sistemas de Enfriamiento Líquido Industrial y Chasis de Servidor.
+
+Software y Seguridad (15 items): Soluciones SIEM, Firewalls de Próxima Generación, Suites de Pentesting y Sistemas Operativos de Servidor.
+
+Licencias y Redes (15 items): Licencias Enterprise perpetuas, Switches de Fibra Óptica, Routers de Núcleo y Créditos Cloud de Alta Disponibilidad.
+
+Cada item debe tener: id, nombre, especificaciones_tecnicas, precio (formato premium), categoría e imagen_url (placeholders de Unsplash tecnológicos).
+
+2. INTERFAZ DE NAVEGACIÓN POR PESTAÑAS Y PORCIONES:
+
+Implementa un sistema de 5 pestañas de categorías (Tabs) filtrables: [Todos, Hardware, Software, Redes, Seguridad].
+
+Paginación Inteligente: No muestres los 50 productos a la vez. Implementa una lógica para mostrar porciones de 10 productos por página o un botón de "Cargar más" con animaciones de framer-motion.
+
+Los productos deben aparecer con un efecto de "cascada" (staggered animation) al cambiar de pestaña o de página.
+
+3. ESTÉTICA CYBER-PREMIUM (GLOW & GLASS):
+
+Splash Screen: Mantén la animación de carga de 2.5s con el mensaje "Estableciendo enlace con el Núcleo OMNI...".
+
+Cards de Producto: Mantén el diseño Glassmorphism con bordes que brillan en cyan neón al hacer hover.
+
+Formulario Retro-Pro: Aplica el diseño de tarjeta con contorno brillante y luces neón reactivas en los inputs. Usa lenguaje corporativo (Empresa, Cargo, Requerimientos Técnicos).
+
+4. SECCIÓN DE UBICACIÓN Y MAPA:
+
+Implementa el diseño asimétrico: un Mapa de Google Maps con filtro oscuro (grayscale/invert) a un lado y las direcciones de la Tienda (Los Molinos) y la Sede Académica (CUCEI) al otro, con iconos de Lucide.
+
+5. FOOTER INSTITUCIONAL REFINADO (ESTRICTO):
+
+Diseño en 3 columnas sin líneas divisorias pesadas.
+
+Columna 1: Logo OMNI CORE y contenedor estilizado para el logo de CUCEI.
+
+Columna 2: Eriberto Orozco Rosas | 217882945 | Ingeniería Informática.
+
+Columna 3: Desarrollo de Aplicaciones Web en la Nube y Móviles | Mtro. Zeus Emanuel Gutierrez Cobian | 2026A.
+
+Comandos de Emergencia:
+Si el despliegue automático falla, ejecuta en la Shell:
+git commit --allow-empty -m "Despliegue manual OMNI V2"
+git push

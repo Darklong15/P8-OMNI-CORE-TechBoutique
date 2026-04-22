@@ -56,7 +56,7 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
         transition={{ delay: 0.5 }}
       >
         <Terminal className="w-4 h-4" />
-        <span>Sincronizando con el Núcleo{dots}</span>
+        <span>Estableciendo enlace con el Núcleo OMNI{dots}</span>
         <motion.span 
           animate={{ opacity: [0, 1, 0] }} 
           transition={{ duration: 0.8, repeat: Infinity }}
