@@ -36,8 +36,8 @@ const IMG = {
 
 const PRODUCTS: Product[] = [
   // HARDWARE (20)
-  { id: 1, name: "Motherboard TRX40 PRO", desc: "Plataforma sTRX4 para Threadripper, 8 canales DDR4 ECC.", price: "32,500", cat: "Hardware", img: IMG.motherboard },
-  { id: 2, name: "Motherboard Z790 AORUS Master", desc: "Chipset LGA 1700, 20+1+2 fases digitales, PCIe 5.0.", price: "18,900", cat: "Hardware", img: IMG.motherboard },
+  { id: 1, name: "Motherboard TRX40 PRO", desc: "Plataforma sTRX4 para Threadripper, 8 canales DDR4 ECC.", price: "32,500", cat: "Hardware", img: "https://res.cloudinary.com/dv20dw1uq/image/upload/v1776900324/TRX40_AORUS_PRO_WIFI_2_kxjvfo.jpg" },
+  { id: 2, name: "Motherboard Z790 AORUS Master", desc: "Chipset LGA 1700, 20+1+2 fases digitales, PCIe 5.0.", price: "18,900", cat: "Hardware", img: "https://res.cloudinary.com/dv20dw1uq/image/upload/v1776900367/81B9SuZS68L._AC__hbsadu.jpg" },
   { id: 3, name: "AMD Threadripper PRO 7995WX", desc: "96 núcleos / 192 hilos, 5.1 GHz boost, 350W TDP.", price: "215,000", cat: "Hardware", img: IMG.cpu },
   { id: 4, name: "Intel Xeon Platinum 8592+", desc: "64 núcleos Sapphire Rapids, AMX, 320MB caché L3.", price: "180,000", cat: "Hardware", img: IMG.cpu },
   { id: 5, name: "NVIDIA RTX 6000 Ada Generation", desc: "48 GB GDDR6 ECC, 18.176 CUDA cores, 300W.", price: "165,000", cat: "Hardware", img: IMG.gpu },
