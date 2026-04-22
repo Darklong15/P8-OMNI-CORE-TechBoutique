@@ -1,52 +1,93 @@
 export function Footer() {
   return (
-    <footer className="bg-black/80 border-t border-primary/20 py-12 mt-12 relative overflow-hidden">
-      <div className="absolute inset-0 grid-bg opacity-10 pointer-events-none" />
+    <footer className="bg-[#070a10] border-t border-cyan-500/10 py-16 mt-12 relative overflow-hidden">
+      <div className="absolute inset-0 grid-bg opacity-5 pointer-events-none" />
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          
-          <div className="flex flex-col items-start gap-4">
-            <div className="font-mono font-bold text-2xl tracking-wider text-foreground glow-text border-b border-primary/30 pb-2 mb-2 inline-block">
-              OMNI CORE
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-10">
+
+          <div className="flex flex-col items-start gap-5">
+            <div>
+              <div className="font-mono font-bold text-2xl tracking-wider text-foreground glow-text">
+                OMNI CORE
+              </div>
+              <p className="text-sm font-light text-gray-400 mt-2 tracking-wide">
+                Securing the future.
+              </p>
             </div>
-            <img src="/logo-cucei.png" alt="Logo de CUCEI" className="h-10 opacity-80 mix-blend-screen grayscale" />
+            <div className="w-32 h-12 bg-white/5 rounded-md flex items-center justify-center border border-white/10 overflow-hidden">
+              <img
+                src="/logo-cucei.png"
+                alt="Logo de CUCEI"
+                className="max-h-8 max-w-[80%] object-contain opacity-80"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).style.display = "none";
+                }}
+              />
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 font-mono text-xs text-muted-foreground border-l border-white/10 pl-6">
-            <div className="flex justify-between sm:col-span-2 border-b border-white/5 pb-1 mb-1">
-              <span className="text-primary/70 uppercase">Alumno:</span>
-              <span className="text-foreground text-right">Eriberto Orozco Rosas</span>
+          <div className="flex flex-col">
+            <div className="text-[10px] uppercase tracking-[0.2em] text-cyan-500/60 font-bold mb-1">
+              ALUMNO:
             </div>
-            <div className="flex justify-between border-b border-white/5 pb-1 mb-1">
-              <span className="text-primary/70 uppercase">Código:</span>
-              <span className="text-foreground text-right">217882945</span>
+            <div className="text-sm font-light text-gray-300 mb-4">
+              Eriberto Orozco Rosas
             </div>
-            <div className="flex justify-between border-b border-white/5 pb-1 mb-1">
-              <span className="text-primary/70 uppercase">Carrera:</span>
-              <span className="text-foreground text-right">Ingeniería Informática</span>
+
+            <div className="text-[10px] uppercase tracking-[0.2em] text-cyan-500/60 font-bold mb-1">
+              CÓDIGO:
             </div>
-            <div className="flex justify-between sm:col-span-2 border-b border-white/5 pb-1 mb-1">
-              <span className="text-primary/70 uppercase">Materia:</span>
-              <span className="text-foreground text-right">Desarrollo de Aplicaciones Web en la Nube y Móviles</span>
+            <div className="text-sm font-light text-gray-300 mb-4 font-mono">
+              217882945
             </div>
-            <div className="flex justify-between sm:col-span-2 border-b border-white/5 pb-1 mb-1">
-              <span className="text-primary/70 uppercase">Profesor:</span>
-              <span className="text-foreground text-right">Mtro. Zeus Emanuel Gutierrez Cobian</span>
+
+            <div className="text-[10px] uppercase tracking-[0.2em] text-cyan-500/60 font-bold mb-1">
+              CARRERA:
             </div>
-            <div className="flex justify-between">
-              <span className="text-primary/70 uppercase">Calendario:</span>
-              <span className="text-foreground text-right">2026A</span>
+            <div className="text-sm font-light text-gray-300 mb-4">
+              Ingeniería Informática
             </div>
-            <div className="flex justify-between">
-              <span className="text-primary/70 uppercase">Sede:</span>
-              <span className="text-foreground text-right">CUCEI</span>
+          </div>
+
+          <div className="flex flex-col">
+            <div className="text-[10px] uppercase tracking-[0.2em] text-cyan-500/60 font-bold mb-1">
+              MATERIA:
+            </div>
+            <div className="text-sm font-light text-gray-300 mb-4">
+              Desarrollo de Aplicaciones Web en la Nube y Móviles
+            </div>
+
+            <div className="text-[10px] uppercase tracking-[0.2em] text-cyan-500/60 font-bold mb-1">
+              PROFESOR:
+            </div>
+            <div className="text-sm font-light text-gray-300 mb-4">
+              Mtro. Zeus Emanuel Gutierrez Cobian
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-cyan-500/60 font-bold mb-1">
+                  CALENDARIO:
+                </div>
+                <div className="text-sm font-light text-gray-300 mb-4 font-mono">
+                  2026A
+                </div>
+              </div>
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-cyan-500/60 font-bold mb-1">
+                  SEDE:
+                </div>
+                <div className="text-sm font-light text-gray-300 mb-4 font-mono">
+                  CUCEI
+                </div>
+              </div>
             </div>
           </div>
 
         </div>
-        
-        <div className="mt-12 text-center border-t border-white/5 pt-6 font-mono text-[10px] text-muted-foreground/50 tracking-widest uppercase">
-          ACCESO CLASIFICADO - SISTEMA MONITOREADO
+
+        <div className="mt-12 pt-6 font-mono text-[10px] text-muted-foreground/50 tracking-[0.3em] uppercase text-center">
+          Acceso clasificado — Sistema monitoreado
         </div>
       </div>
     </footer>
