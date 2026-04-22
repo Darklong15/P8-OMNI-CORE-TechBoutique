@@ -13,11 +13,11 @@ export function Footer() {
                 Securing the future.
               </p>
             </div>
-            <div className="w-40 h-40 bg-white/5 rounded-md flex items-center justify-center border border-white/10 overflow-hidden p-3">
+            <div className="w-32 h-12 bg-white/5 rounded-md flex items-center justify-center border border-white/10 overflow-hidden">
               <img
                 src="https://res.cloudinary.com/dv20dw1uq/image/upload/v1776899223/escudo-cucei_iyxguz.webp"
-                alt="Escudo Oficial CUCEI"
-                className="w-full h-full object-contain opacity-90 hover:opacity-100 transition-opacity"
+                alt="Escudo Oficial"
+                className="h-32 w-32 object-fill opacity-80 hover:opacity-100 transition-opacity"
               />
             </div>
           </div>
