@@ -1,0 +1,82 @@
+PROMPT PARA REPLIT AGENT - OMNI CORE ULTIMATE
+Configuración Inicial Obligatoria:
+Al configurar el proyecto, crea siempre un archivo vercel.json en la raíz para asegurar el despliegue correcto de una SPA con Vite. El archivo debe tener exactamente esta configuración:
+
+JSON
+{
+  "framework": "vite",
+  "outputDirectory": "dist",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
+Usa el stack: React, Vite, Tailwind CSS, Framer Motion y Lucide React.
+
+1. SISTEMA DE BIENVENIDA Y CARGA (SPLASH SCREEN ANIMADA):
+
+Implementa una pantalla de carga inicial de 2.5 segundos.
+
+Diseño: Fondo negro profundo. En el centro, el logo de "OMNI CORE" debe aparecer con un efecto de "escaneo" o pulso cyan neón.
+
+Usa framer-motion para que el logo se eleve y se desvanezca hacia arriba (fade-out) mientras la página principal aparece con un efecto de desenfoque inverso (blur-in).
+
+El mensaje de carga debe decir: "Sincronizando con el Núcleo..." con una tipografía monoespaciada tipo terminal.
+
+2. DISEÑO Y ESTÉTICA DE RENOMBRE (ELITE UI):
+
+Paleta: Dark Mode absoluto (#0b0f19). Acentos en Cyan Neón (#00daf3) y variaciones de transparencia.
+
+Efectos: Glassmorphism en todos los componentes (backdrop-blur-xl). Bordes ultra finos con brillo interno.
+
+Sensación: Minimalismo agresivo, limpieza visual absoluta y animaciones de entrada suaves (slide-up) al hacer scroll.
+
+3. ESTRUCTURA DE LA LANDING PAGE:
+
+Navbar: Sticky con efecto cristal. Links: Inicio, Catálogo, Ubicación, Contacto.
+
+Hero Section: Título "El Núcleo de tu Infraestructura Tecnológica". Subtítulo sobre exclusividad técnica. Botón principal con resplandor cyan.
+
+Tienda con Inventario Realista (15 Productos):
+
+Crea una base de datos local (arreglo) con 15 productos.
+
+Categorías: "Hardware" (Servidores Blade, GPU Enterprise, Switches), "Software" (OS Pro, Suites de Ciberseguridad), "Licencias" (SaaS Anual, Cloud Credits).
+
+Filtros Dinámicos: Botones "Todos", "Hardware", "Software", "Licencias". Al filtrar, los productos deben reordenarse con animaciones fluidas (layout de Framer Motion).
+
+Tarjetas de producto: Imagen de alta calidad (Unsplash), precio neón, y descripción técnica.
+
+Sección de Ubicaciones:
+
+Tienda: "C. Sésamo Sur 814-19, Fraccionamiento Los Molinos, 45200 Campestre las Palomas, Jal."
+
+Sede Universitaria: "Blvd. Gral. Marcelino García Barragán 1421, Olímpica, 44430 Guadalajara, Jal."
+
+Formulario de Contacto: Funcional con useState. Al enviar, debe mostrar una animación de "Encriptando mensaje..." y confirmar con "Protocolo enviado con éxito".
+
+4. PIE DE PÁGINA ACADÉMICO (DATOS EXACTOS):
+
+Alumno: Eriberto Orozco Rosas | Código: 217882945 | Carrera: Ingeniería Informática.
+
+Materia: Desarrollo de Aplicaciones Web en la Nube y Móviles.
+
+Profesor: Mtro. Zeus Emanuel Gutierrez Cobian.
+
+Calendario: 2026A | Sede: CUCEI.
+
+Incluye el placeholder para el logo de CUCEI: <img src="/logo-cucei.png" alt="Logo de CUCEI" class="h-10 opacity-80" />.
+
+Instrucciones de Despliegue Manual (Si falla el auto-deploy):
+En la Shell de Replit, ejecuta:
+git commit --allow-empty -m "Despliegue manual Vercel"
+git push
+(Si hay error de archivo bloqueado: rm -f .git/index.lock)
+
+Visualización del Concepto de Carga y Filtros
+Para que entiendas cómo funcionará la lógica de la animación de carga y el filtrado de tus 15 productos que la IA va a escribir, he preparado este interactivo. Puedes ver cómo los productos "reaccionan" al filtro y cómo se ve la animación de entrada.
+
+{
+"component": "LlmGeneratedComponent",
+"props": {
+"height": "800px",
+"prompt": "Create an interactive preview of the OMNI CORE landing page features. 1. A Splash Screen simulation: A button to trigger a 2-second loading animation with a neon cyan logo pulse. 2. A Product Grid simulation: Show 15 sample technology products (Hardware, Software, Licenses) in a dark premium UI. 3. Interactive Filters: Buttons for 'Hardware', 'Software', 'Licenses'. When clicked, the grid items should animate (using Framer Motion) to filter. Style: Dark theme (#0b0f19), cyan accents, glassmorphism cards. Labels and names must be in Spanish as requested. Include the 15 specific product types mentioned in the prompt (Servers, GPU, Cybersecurity, etc.)."
+}
+}
